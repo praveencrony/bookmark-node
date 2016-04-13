@@ -1,0 +1,66 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Manage Bookmarks</h1>
+            
+        </div>
+
+    </main>
+<div class="container">
+<div class="row">
+<div class="col-md-4 pull-right">
+<a href="/bookmarks/newbookmark" class="btn btn-success pull-right">Add Bookmark</a>
+</div>
+<div class="col-md-12">
+<table class="table table-hover">
+<thead> 
+<tr> <th>#</th> 
+<th>Categories</th> 
+<th>Name</th> 
+<th>Url</th> 
+<th>Edit</th> 
+<th>Delete</th> 
+</tr> 
+</thead>
+  <% bookmarks.forEach(function(msgObj,index){ %>
+ <tr>
+<td><%= index+1 %></td>
+<td>   
+<%= msgObj.category.category %>
+</td>
+<td>   
+<%= msgObj.name %>
+</td>
+<td>   
+<%= msgObj.url %>
+</td>
+<td><a href="/bookmarks/<%= msgObj._id %>/edit">Edit</a></td>
+<td><a href="/bookmarks/<%= msgObj._id %>/delete">Delete</a></td>
+</tr>
+
+  <% }) %>
+</table>
+
+</div>
+</div>
+
+</div>
+
+    <footer>
+        <% include partials/footer %>
+    </footer>
+    
+</body>
+</html>

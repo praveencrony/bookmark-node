@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7 Apr, 2016, 9:37:13 AM
+    Author     : krds-praveen
+*/
+
+.bookmarkGrid
+{
+	border: solid 2px #f4f4f4;
+	box-shadow:0px 0px 3px 2px #8E8C8C; 
+	margin-bottom:20px; 
+	background-color: #EEEEEE;
+	transition: all 1s;
+}
+
+.bookmarkGrid:hover
+{
+	box-shadow:0px 0px 3px 3px #204d74;
+	transform: scale(1.5);
+	z-index: 99;
+}
+
+.bookmarkGrid li a
+{
+	font-size: 18px;
+	
+}
+
+.bookmarkGrid li a:hover
+{
+	color: #245269;
+}
+
+
+
+
+

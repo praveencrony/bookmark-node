@@ -1,0 +1,36 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include bookmarks/partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include bookmarks/partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            
+            <p>Welcome to booksmarks category</p>
+        </div>
+
+    </main>
+<div class="container">
+
+
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<pre><%= error.stack %></pre>
+
+
+</div>
+
+    <footer>
+        <% include bookmarks/partials/footer %>
+    </footer>
+    
+</body>
+</html>
