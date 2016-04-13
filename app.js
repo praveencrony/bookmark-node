@@ -6,7 +6,11 @@ var cookieParser = require('cookie-parser');
 var validation    =     require("validator");
 var bodyParser = require('body-parser');
 var mongoose	= require('mongoose');
-var db			=	mongoose.connect('mongodb://localhost/bookmarks');
+//var db			=	mongoose.connect('mongodb://localhost/bookmarks');
+
+var db		= mongoose.connect(
+  'mongodb://krdsbookmarks:krds@ds023540.mlab.com:23540/krdsbookmarks'
+);
 
 db.connection.on('error', console.error.bind(console, 'connection errors:'));
 db.connection.once('open', function() {
