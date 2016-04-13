@@ -81,5 +81,8 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-var port_number = server.listen(process.env.PORT || 3000);
-app.listen(port_number);
+app.listen(process.env.PORT || 3000, function(){
+   var host = server.address().address;
+   var port = server.address().port;
+   console.log('Listening on http://%s:%s', host, port);
+});
