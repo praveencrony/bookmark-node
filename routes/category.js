@@ -3,7 +3,7 @@ var express = require('express'),
     mongoose = require('mongoose'), 
     bodyParser = require('body-parser'); 
     methodOverride = require('method-override'), 
-	validation    =     require("validator");
+	//validation    =     require("validator");
 	
 	router.use(bodyParser.urlencoded({ extended: true }))
 
