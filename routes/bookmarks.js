@@ -21,14 +21,15 @@ router.route('/')
     
     .get(function(req, res, next) {
       
-      mongoose.model('Bookmark').find({}).populate('category')
+      mongoose.model('Category').find({}).populate('bookmarks')
 			.exec(function (err, bookmark) {
               if (err) {
                   return console.error(err);
 				 
               } else {
                  console.log(bookmark);
-                  res.format({
+				 
+                 res.format({
                     
                     html: function(){
                         res.render('bookmarks/index', {
@@ -45,7 +46,7 @@ router.route('/')
         });
     })
     //POST a new category
-    .post(function(req, res) {
+    /*.post(function(req, res) {
        
 		var category	= req.body.category;
 		var name		= req.body.name;
@@ -78,9 +79,9 @@ router.route('/')
               }
         });
 		
-});
+});*/
 
- /*.post(function(req, res) {
+ .post(function(req, res) {
        
 		var category = req.body.category;
 		var name = req.body.name;
@@ -113,15 +114,13 @@ router.route('/')
 					  
 				  });
 				  
-				  console.log(cats);
-				
-                  res.format({
+				  res.format({
                       //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
                     html: function(){
                         // If it worked, set the header so the address bar doesn't still say /adduser
-                        res.location("bookmarks");
+                       // res.location("bookmarks");
                         // And forward to success page
-                        res.redirect("/bookmarks");
+                      //  res.redirect("/bookmarks");
                     },
                     //JSON response will show the newly created blob
                     json: function(){
@@ -141,7 +140,7 @@ router.route('/')
         //call the create function for our database
         
 	
-    });*/
+    });
 		  
 		
 

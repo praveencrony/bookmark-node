@@ -23,8 +23,10 @@
 <div class="col-md-12">
 <% bookmarks.forEach(function(msgObj,index){ %>
 <div class="col-md-3 text-center bookmarkGrid">
-<h2><%= msgObj.category.category %></h2>
+<h2><%= msgObj.category %></h2>
+<% msgObj.bookmarks.forEach(function(msgObj,index){ %>
 <li><a href="<%=msgObj.url%>" target="_blank"><%=msgObj.name%></a></li>
+<% }) %>
 </div>
 <div class="col-md-1">&nbsp;</div>
   <% }) %>

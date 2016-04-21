@@ -48,9 +48,9 @@ router.route('/')
        
 		var category = req.body.category;
 
-		if(validation.isNull(category)) {
+		/*if(validation.isNull(category)) {
 			
-		}
+		}*/
       
         //call the create function for our database
         mongoose.model('Category').create({
