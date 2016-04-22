@@ -4,10 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/bookmarks/routes/bookmarks.js</file>
+            <file>file:/var/www/bookmarks/app.js</file>
             <file>file:/var/www/bookmarks/model/category.js</file>
+            <file>file:/var/www/bookmarks/views/bookmarks/newbookmark.ejs</file>
             <file>file:/var/www/bookmarks/model/bookmark.js</file>
-            <file>file:/var/www/bookmarks/routes/category.js</file>
             <file>file:/var/www/bookmarks/views/bookmarks/manage.ejs</file>
+            <file>file:/var/www/bookmarks/views/bookmarks/index.ejs</file>
         </group>
     </open-files>
 </project-private>
