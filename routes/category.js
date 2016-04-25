@@ -63,7 +63,7 @@ router.route('/')
                   //Blob has been created
                   console.log('POST creating new category: ' + category);
                   res.format({
-                      //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
+                    
                     html: function(){
                         // If it worked, set the header so the address bar doesn't still say /adduser
                         res.location("category");
@@ -106,9 +106,7 @@ router.param('id', function(req, res, next, id) {
             });
         //if it is found we continue on
         } else {
-            //uncomment this next line if you want to see every JSON document response for every GET/PUT/DELETE call
-            //console.log(blob);
-            // once validation is done save the new item in the req
+            
             req.id = id;
             // go to the next thing
             next(); 
@@ -140,10 +138,10 @@ router.route('/:id/')
   });
 
 router.route('/:id/edit')
-	//GET the individual blob by Mongo ID
+	//GET the individual category by Mongo ID
 	.get(function(req, res) {
 		
-	    //search for the blob within Mongo
+	    //search for the category within Mongo
 	    mongoose.model('Category').findById(req.id, function (err, category) {
 	        if (err) {
 	            console.log('GET Error: There was a problem retrieving: ' + err);
@@ -152,7 +150,7 @@ router.route('/:id/edit')
 	            console.log('GET Retrievings ID: ' + category._id);
          
 	            res.format({
-	                //HTML response will render the 'edit.jade' template
+	                
 	                html: function(){
 	                       res.render('bookmarks/editcat', {
 	                          title: 'Category: ' + category.category,
@@ -167,9 +165,9 @@ router.route('/:id/edit')
 	        }
 	    });
 	})
-	//PUT to update a blob by ID
+	//PUT to update a category by ID
 	.put(function(req, res) {
-	    // Get our REST or form values. These rely on the "name" attributes
+	    
 	    var cate = req.body.category;
 	  //find the document by ID
 	    mongoose.model('Category').findById(req.id, function (err, category) {
@@ -182,7 +180,7 @@ router.route('/:id/edit')
 	              res.send("There was a problem updating the information to the database: " + err);
 	          } 
 	          else {
-	                  //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
+	                
 	                  res.format({
 	                      html: function(){
 							  res.redirect("/category");
@@ -198,7 +196,7 @@ router.route('/:id/edit')
 	});
 	
 	router.route('/:id/delete')
-	//GET the individual blob by Mongo ID
+	//GET the individual category by Mongo ID
 	.get(function(req, res) {
 		
 	    mongoose.model('Category').findById(req.id, function (err, category) {

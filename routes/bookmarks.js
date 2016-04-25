@@ -115,9 +115,9 @@ router.route('/')
 				  });
 				  
 				  res.format({
-                      //HTML response will set the location and redirect back to the home page. You could also create a 'success' page if that's your thing
+                    
                     html: function(){
-                        // If it worked, set the header so the address bar doesn't still say /adduser
+                        // If it worked, set the header so the address bar doesn't still say /bookmarks
                       res.location("bookmarks");
                         // And forward to success page
                      res.redirect("/bookmarks");
@@ -137,7 +137,7 @@ router.route('/')
 		  
 		});
 	   
-        //call the create function for our database
+       
         
 	
     });
@@ -257,9 +257,7 @@ router.param('id', function(req, res, next, id) {
             });
         //if it is found we continue on
         } else {
-            //uncomment this next line if you want to see every JSON document response for every GET/PUT/DELETE call
-            //console.log(blob);
-            // once validation is done save the new item in the req
+           
             req.id = id;
             // go to the next thing
             next(); 
@@ -296,20 +294,20 @@ router.route('/:id/')
   });
 
 router.route('/:id/edit')
-	//GET the individual blob by Mongo ID
+	//GET the individual bookmark by Mongo ID
 	.get(function(req, res) {
-	    //search for the blob within Mongo
+	    //search for the bookmark within Mongo
 	    mongoose.model('Bookmark').findById(req.id, function (err, bookmark) {
 			//console.log(bookmark);
 	        if (err) {
 	            console.log('GET Error: There was a problem retrieving: ' + err);
 	        } else {
-	            //Return the blob
+	            
 				  mongoose.model('Category').find({}, function (err, category) {
 					 
 				console.log('GET Retrieving ID: ' + bookmark._id);
 				res.format({
-	                //HTML response will render the 'edit.jade' template
+	               
 	                html: function(){
 						console.log(bookmark)
 	                       res.render('bookmarks/editbookmark', {
@@ -327,9 +325,8 @@ router.route('/:id/edit')
 	})
 	//PUT to update a blob by ID
 	.put(function(req, res) {
-	    // Get our REST or form values. These rely on the "name" attributes
-	    
-		 var category = req.body.category;
+	   
+	    var category = req.body.category;
 		var name = req.body.name;
 		var url = req.body.url;
 
@@ -346,7 +343,7 @@ router.route('/:id/edit')
 	              res.send("There was a problem updating the information to the database: " + err);
 	          } 
 	          else {
-	                  //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
+	                 
 	                  res.format({
 	                      html: function(){
 	                           res.redirect("/bookmarks/manage");
@@ -362,7 +359,7 @@ router.route('/:id/edit')
 	});
 	
 	router.route('/:id/delete')
-	//GET the individual blob by Mongo ID
+	//GET the individual bookmark by Mongo ID
 	.get(function(req, res) {
 		
 	    mongoose.model('Bookmark').findById(req.id, function (err, bookmark) {
